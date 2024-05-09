@@ -1,0 +1,329 @@
+body {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+  
+  .product-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-image {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .product-image img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+  }
+  
+  .product-details {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  h1,
+  p {
+    margin: 0;
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #555;
+    margin-top: 5px;
+  }
+  
+  :root {
+    --primary-color: #0f9d58;
+    --background-color: #f0f3f7;
+    --grey: #7a7a7b;
+  }
+  
+  * {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  a {
+    color: unset;
+    text-decoration: none;
+  }
+  
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    background-color: var(--background-color);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+  
+  .menu-wrap {
+    max-width: 1366px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  
+  .logo {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-color);
+  }
+  
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .menu-item {
+    margin-left: 1rem;
+    padding: 0.5rem 1.5rem;
+    font-weight: 600;
+    color: var(--grey);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .menu-item:hover,
+  .menu-item.active {
+    color: #ffffff;
+    background-color: var(--primary-color);
+    border-radius: 1rem;
+  }
+  
+  .cart-btn {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+  }
+  
+  .cart-btn:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: 1rem;
+  }
+  
+  .product-details button {
+    color: #ffffff;
+    background-color: var(--primary-color);
+    border-radius: 1rem;
+    padding: 0.5rem 2rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+  }
+  
+  .product-details button:hover {
+    background-color: #ffffff;
+    color: var(--primary-color);
+  }
+  /* Additional styles for the cart table */
+  .cart-table {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cart-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  .header-item {
+    flex: 1;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .product-info {
+    flex: 2;
+  }
+  .product-name,
+  .price,
+  .quantity,
+  .total {
+    flex: 1;
+    text-align: center;
+    color: #333;
+  }
+  
+  .actions {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .delete-btn {
+    background-color: #fff;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 0px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+  
+  .delete-btn:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+  
+  .cart-total {
+    text-align: right;
+    padding: 15px;
+    background-color: #eee;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  .cart-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+  }
+  
+  /* Responsive styles for smaller screens */
+  @media screen and (max-width: 768px) {
+    .cart-table {
+      width: 90%;
+    }
+  }
+  /* Thêm một class mới cho các hàng chẵn để tạo sự đổi màu giữa các hàng */
+  .cart-item:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Sử dụng grid để tạo lưới cho bảng giỏ hàng */
+  .cart-table {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr; /* Điều chỉnh tỷ lệ của các cột tùy theo nhu cầu */
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-header,
+  .cart-item {
+    display: contents; /* Sử dụng contents để mỗi item trong grid giữ nguyên chiều rộng và không lệch */
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  /* Chỉnh kích thước và font chữ cho các tiêu đề và nội dung trong bảng giỏ hàng */
+  .header-item,
+  .product-name,
+  .price,
+  .total,
+  .actions {
+    padding: 10px;
+  }
+  .quantity {
+    padding: 5px;
+  }
+  
+  /* Responsive styles cho màn hình nhỏ */
+  @media screen and (max-width: 768px) {
+    .cart-table {
+      grid-template-columns: 1fr; /* Hiển thị chỉ một cột trên màn hình nhỏ */
+    }
+  }
+  
+  .cart-summary {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Thêm đường viền ở đầu phần tổng tiền và nút Mua Hàng */
+  }
+  
+  .total-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .total-price {
+    margin-left: 10px;
+    font-weight: bold;
+  }
+  
+  .buy-btn {
+    background-color: #ff5722;
+    color: #fff;
+    padding: 10px 15px; /* Điều chỉnh kích thước padding để làm cho nút nhỏ hơn */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px; /* Điều chỉnh kích thước chữ */
+  }
+  /* Styling for quantity input */
+  .quantity-input {
+    width: 30px; /* Độ rộng của ô nhập số lượng */
+    height: 30px; /* Chiều cao của ô nhập số lượng */
+    text-align: center; /* Canh giữa nội dung trong ô */
+    font-size: 16px; /* Kích thước chữ */
+    border: 1px solid #ddd; /* Viền của ô nhập số lượng */
+    border-radius: 4px; /* Bo tròn góc */
+    margin: 0 5px; /* Khoảng cách giữa số lượng và nút thêm/bớt */
+  }
+  
+  /* Styling for quantity control buttons */
+  .quantity-control {
+    font-size: 16px; /* Kích thước chữ */
+    cursor: pointer; /* Con trỏ tay khi di chuột */
+    border: 1px solid #ddd; /* Viền của nút thêm/bớt */
+    border-radius: 4px; /* Bo tròn góc */
+    padding: 5px 10px; /* Kích thước lề bên trong nút thêm/bớt */
+    margin: 0 5px; /* Khoảng cách giữa nút thêm/bớt và ô nhập số lượng */
+  }
+  
+  /* Hover effect for quantity control buttons */
+  .quantity-control:hover {
+    background-color: #f5f5f5; /* Màu nền khi di chuột */
+  }
