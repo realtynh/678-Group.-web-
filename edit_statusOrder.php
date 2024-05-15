@@ -37,9 +37,24 @@ if (isset($_GET["id_order"]))
             <li>Tên Người Nhận: <?php echo $name_result["FullName"] ?></li>
             <li>Số Điện Thoại: <?php echo "0".$result['number_Ship'] ?> </li>
             <li>Địa Chỉ Nhận: <?php echo $result["address_Ship"]  ?></li>
-             <li>Trang Thai :<?php echo $result["status_Orders"] ?></li>
+             <li>Trạng Thái :<?php if ($result["status_Orders"]==0)
+             {
+                echo "Chưa Xử Lý";
+             }
+             else if ($result["status_Orders"]==1)
+             {
+                echo "Đã Xử Lý";
+             }
+             else if ($result["status_Orders"]==2)
+             {
+                echo "Đã Giao Thành Công";
+             }
+             else {
+                echo "Đã Huỷ";
+             } ?></li>
         </ul>
     </div>
+    <!--  echo $result["status_Orders"] -->
 
     <div class="alert alert-info" id="pro_show"> Sản Phẩm Đã Mua : </div>
     <?php 
@@ -63,7 +78,7 @@ if (isset($_GET["id_order"]))
                         Số Lượng : <?php echo $values["Quantity"] ?>
                     </div>
                     <div>
-                        Price : <?php echo number_format($values["Product_Price"],0,',',',').' VNĐ' ?>
+                        Giá : <?php echo number_format($values["Product_Price"],0,',',',').' VNĐ' ?>
                     </div><hr>
         <?php
         }
@@ -74,7 +89,7 @@ if (isset($_GET["id_order"]))
     <select name="status" id="">
         <option value="0">Chưa Xử Lý</option>
         <option value="1">Đã Xử Lý</option>
-        <option value="2">Thành Công</option>
+        <option value="2">Đã Giao Thành Công</option>
         <option value="3">Huỷ Đơn</option>
     </select>
     <button type="submit">Xac Nhan</button> 

@@ -172,7 +172,7 @@ include_once("./config/ketnoi.php");
                             } else {
                                 $tenkhachhang = "Không xác định";
                             }
-                            $tongmua = $row_trade_arr['total_spent'];
+                            $tongmua = number_format($row_trade_arr['total_spent'],0,',',','). 'VNĐ';
                             $id_product = $row_trade_arr['Orders_ID'];
 			                $i++; ?>
                             <tr>

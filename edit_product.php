@@ -17,6 +17,22 @@ $result_query =mysqli_fetch_assoc($query)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Form</title>
     <style>
+        #file-input {
+  /* display: none; */
+}
+
+#preview-label {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+#preview-label:hover {
+  opacity: 0.8;
+}
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
@@ -70,8 +86,31 @@ $result_query =mysqli_fetch_assoc($query)
     <div>
         <label for="Product_ID">ID : <?php echo $result_query['ProductID'] ?></label>
         <div>
-            <input type="file" name="img_pro">
-            <label for="">Image :</label>
+            <label id="preview-label" for="file-input">
+            <input type="file" name="img_pro" id="file-input" accept="image/*">
+        </label>
+        <label for="">
+            Ảnh Sản Phẩm Sẽ Được Cập Nhập :
+        <img style="max-width: 200px; max-height:200px;" id="preview-img">
+        </label>
+        
+            
+            <!--  -->
+            <script>
+                const fileInput = document.getElementById('file-input');
+fileInput.addEventListener('change', function(event) {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(event) {
+      const previewImg = document.getElementById('preview-img');
+      previewImg.src = event.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+});
+            </script>
+            <label for=""> Ảnh Sản Phẩm Hiện Tại :</label>
             <img style="width:400px;" src="./uploads/<?php echo $result_query['Product_Img'] ?>" alt="">
             <input type="text" disabled name="" id="" value="<?php echo $result_query['Product_Img'] ?>">
         </div>
@@ -88,8 +127,8 @@ $result_query =mysqli_fetch_assoc($query)
     </div>
 
     <div>
-        <label for="description_product">Description :</label>
-        <textarea name="description_product" id="description_product" cols="30" rows="10"><?php echo $result_query['descriptions'] ?></textarea>
+        <!-- <label for="description_product">Description :</label> -->
+        <!-- <textarea name="description_product" id="description_product" cols="30" rows="10"><?php echo $result_query['descriptions'] ?></textarea> -->
     </div>
 
     <div>
@@ -102,12 +141,11 @@ if (isset($_POST['submit']) && $_POST['submit'])
     $id1 = $_GET['pID'];
     $new_Name = $_POST['Product_Name'];
     $new_Price = $_POST['Product_Price'];
-    $new_Description = $_POST['description_product'];
 
         $new_namePic = $_FILES['img_pro']['name'];
         $name_tmp = $_FILES['img_pro']['tmp_name'];
 
-        $sql_product = "SELECT * from Products where ProductID =$id ";
+        $sql_product = "SELECT * from products where ProductID =$id ";
         $query_up = mysqli_query($conn,$sql_product);
         $row_up = mysqli_fetch_assoc($query_up);
         if ($_FILES['img_pro']['name']=='')
@@ -121,8 +159,8 @@ if (isset($_POST['submit']) && $_POST['submit'])
             move_uploaded_file($name_tmp,"uploads/".$new_namePic);
         }
     
-        $sql_1 = "UPDATE Products 
-        SET Product_Name='$new_Name', Product_Price='$new_Price', descriptions='$new_Description', Product_Img='$new_namePic'
+        $sql_1 = "UPDATE products 
+        SET Product_Name='$new_Name', Product_Price='$new_Price', Product_Img='$new_namePic'
         WHERE ProductID =$id1";
 
         $query1 = mysqli_query($conn,$sql_1);

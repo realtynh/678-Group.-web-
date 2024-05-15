@@ -85,27 +85,27 @@ $result = mysqli_fetch_assoc($runQuery);
     <form action="" method="post">
         <div class="form-group">
             <label for="ID">ID</label>
-            <input disabled type="text" name="ID" id="ID" value="<?php echo $ID_cus ?>">
+            <input disabled type="text" name="ID" id="ID" value="<?php echo $ID_cus ?> "required>
         </div>
         <div class="form-group">
             <label for="FullName">Họ Và Tên</label>
-            <input type="text" name="new_name" id="FullName" value="<?php echo $result['FullName'] ?>">
+            <input type="text" name="new_name" id="FullName" value="<?php echo $result['FullName'] ?>" required>
         </div>
         <div class="form-group">
             <label for="User_cus">Tài Khoản Người Dùng</label>
-            <input type="text" name="User_cus" id="User_cus" value="<?php echo $result['User_cus'] ?>">
+            <input type="text" name="User_cus" id="User_cus" value="<?php echo $result['User_cus'] ?>" required>
         </div>
         <div class="form-group">
             <label for="Pass_cus">Mật Khẩu</label>
-            <input type="text" name="Pass_cus" id="Pass_cus" value="<?php echo $result['Pass_cus'] ?>">
+            <input type="text" name="Pass_cus" id="Pass_cus" value="<?php echo $result['Pass_cus'] ?>" required>
         </div>
         <div class="form-group">
             <label for="Email">Email</label>
-            <input type="email" name="Email" id="Email" value="<?php echo $result['Email'] ?>">
+            <input type="email" name="Email" id="Email" value="<?php echo $result['Email'] ?>" required>
         </div>
         <div class="form-group">
             <label for="Birth">Ngày Sinh</label>
-            <input type="date" name="Birth" id="Birth" value="<?php echo $result['Birth'] ?>">
+            <input type="date" name="Birth" id="Birth" value="<?php echo $result['Birth'] ?>" required>
         </div>
         <div class="form-group">
             <input type="submit" name="submit" value="Lưu">

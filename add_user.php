@@ -100,20 +100,20 @@ $error_config = ""; // Khởi tạo biến lỗi
     ?>
     <form id="myForm" method="post">
         <label for="">User Name:</label>
-        <input type="text" name="user_name" id="user_name"> <br> <br>
+        <input type="text" name="user_name" id="user_name" required> <br> <br>
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password"><br><br>
+        <input type="password" id="password" name="password" required><br><br>
         <label for="confirmPassword">Confirm Password:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword"><br><br>
+        <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
 
         <label for="">Full Name:</label>
-        <input type="text" name="Fullname" id="fullname"> <br> <br>
+        <input type="text" name="Fullname" id="fullname" required> <br> <br>
 
         <label for="">Full Name:</label>
-        <input type="date" name="birth" id="birth"> <br> <br>    
+        <input type="date" name="birth" id="birth" required> <br> <br>    
 
         <label for="email">Email:</label>
-        <input type="email" name="email" id="email"> <br><br>
+        <input type="email" name="email" id="email" required> <br><br>
 
         <input type="submit" value="Submit">
     </form>

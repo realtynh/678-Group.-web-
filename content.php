@@ -15,7 +15,7 @@
                         <option value="-1">Select Status</option>
                         <option value="0">Chưa Xác Nhận</option>
                         <option value="1">Đã Xác Nhận</option>
-                        <option value="2"> Đã Giao</option>
+                        <option value="2"> Đã Giao Thành Công</option>
                         <option value="3"> Đã Huỷ</option>
                     </select>
                 </div>

@@ -310,7 +310,7 @@ $product = mysqli_query($conn, "select * from Products");
                                     <td><?php echo $row_page11['ProductID'] ?></td>
                                     <td><img width="100px" src="./uploads/<?php echo $row_page11['Product_Img'] ?>"></td>
                                     <td><?php echo $row_page11['Product_Name'] ?></td>
-                                    <td><?php echo $row_page11['Product_Price'] ?></td>
+                                    <td><?php echo number_format($row_page11['Product_Price'],0,',',',').' VNĐ' ?></td>
 
                                     <td>
                                         <a onclick="return confirm('Bạn Muốn Xoá Sản Phẩm Này Đúng Chứ ?');" target="_blank" href="delete_product.php?ProductID=<?php echo $row_page11['ProductID']  ?>"><button class="dlt" onclick="dltOnc()">Delete</button></a>

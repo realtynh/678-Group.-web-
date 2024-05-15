@@ -5,7 +5,7 @@ if (isset($_POST["submit"]) && $_POST["submit"])
     // $ProductID = $_POST["ProductID"];
     $product_name = $_POST["product_name"];
     $product_price = $_POST["product_price"];
-    $product_Description = $_POST["product_Description"];
+    // $product_Description = $_POST["product_Description"];
     // $product_status = $_POST["product_status"];
     $name = $_FILES['product_img']['name'];
     $temp_name = $_FILES['product_img']['tmp_name'];
@@ -98,20 +98,38 @@ if (isset($_POST["submit"]) && $_POST["submit"])
     <hr>
     <form action="" method="post" role="form" enctype="multipart/form-data">
 
-    <label for="">Product Name :</label>
-    <input type="text" name="product_name" id=""> <br>
+    <label for="" >Product Name :</label>
+    <input type="text" name="product_name" id="" required> <br>
 
-        <label for="">Price :</label>
-        <input type="text" name="product_price" id=""><br>
+        <label for="">Giá :</label>
+        <input type="text" name="product_price" id="" required><br>
 
-        <label for="">Image Product</label>
-        <input type="file" name="product_img" id="">
+        <label id="preview-label" for="file-input">Image Product <br>
+        <input type="file" name="product_img" id="file-input" accept="image/*">
+        </label>
 
-        <label for="">Description :</label>
-        <textarea name="product_Description" id="" cols="100" rows="10" ></textarea>
+        <!-- <label for="">Description :</label> -->
+        <!-- <textarea name="product_Description" id="" cols="100" rows="10" ></textarea> -->
 
+        <img style="align-items: center; max-height:300px;max-width:300px" style="max-width: 200px; max-height:200px;" id="preview-img">
         <input type="submit" value="Submit" name="submit">
 
+
     </form>
+    <script>
+                const fileInput = document.getElementById('file-input');
+fileInput.addEventListener('change', function(event) {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(event) {
+      const previewImg = document.getElementById('preview-img');
+      previewImg.src = event.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+});
+            </script>
+             
 </body>
 </html>

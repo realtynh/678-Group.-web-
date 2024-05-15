@@ -239,7 +239,7 @@ global $conn;
             
               <?php  }
             else {
-                echo "ko co";
+                echo '<span>Không Tìm Thấy Thông Tin Người Dùng.<br></span>';
             }
             }
             else

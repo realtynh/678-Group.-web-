@@ -32,7 +32,7 @@ $id_order = $result_pro['Orders_ID'];
         <th>Tên Khách Hàng</th>
         <th>Tổng Tiền</th>
         <th>Trạng Thái</th>
-        <th>Chỉnh Sửa</th>
+        <th>Chỉnh Sửa Trạng Thái</th>
     </tr>
     <?php
     $sql_join_Order_OrderDetail = " SELECT *, CONCAT(FORMAT( SUM(products.Product_Price * orders_detail.Quantity),0),' VNĐ') as TotalPrice 
@@ -68,7 +68,7 @@ $id_order = $result_pro['Orders_ID'];
                 ?>
             </td>
             <td>
-                <a href="edit_statusOrder.php/?id_order=<?php echo $result_pro["Orders_ID"] ?>" target="_blank">Chỉnh Sửa Đơn</a>
+                <a href="edit_statusOrder.php/?id_order=<?php echo $result_pro["Orders_ID"] ?>" target="_blank">Chỉnh Sửa</a>
             </td>
         </tr>
     <?php

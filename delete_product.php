@@ -20,7 +20,8 @@ if ($getInformORder > 0)
     $sql_dlt = "UPDATE products SET status_product = 1 WHERE ProductID = $id";
     $runSQL = mysqli_query($conn,$sql_dlt);
     // header('location: ProductManagement.php');   
-    print_r($getInformORder);
+    // print_r($getInformORder);
+    echo "Sản Phẩm Này Đang Còn Tồn Tại Trong Đơn Hàng Của Khách Hàng. <br> Ẩn Sản Phẩm Sẽ Được Ẩn Đi.";
 }
 else
 {

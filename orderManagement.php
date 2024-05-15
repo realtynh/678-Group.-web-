@@ -270,7 +270,7 @@ global $conn;
                     <!-- ====================================== -->
                     <?php
                     $phantrang = 3;
-                    $n_product = getAll("accounts");
+                    $n_product = getAll("orders");
                     $n_page = ceil(mysqli_num_rows($n_product) / $phantrang);
                     if (isset($_GET["sub_inp"]) && is_numeric($_GET["sub_inp"]) && $_GET["sub_inp"] >= 1 && $_GET["sub_inp"] <= $n_page) {
                         $n_p = $_GET["sub_inp"];
@@ -299,7 +299,7 @@ global $conn;
                             <th>Tên Khách Hàng</th>
                             <th>Tổng Tiền</th>
                             <th>Trạng Thái</th>
-                            <th>Chỉnh Sửa</th>
+                            <th>Chỉnh Sửa Trạng Thái</th>
                         </tr>
                         <?php
                         while ($row_page1 = mysqli_fetch_array($qr)) {
@@ -322,7 +322,7 @@ global $conn;
                                             continue;
                                         }
                                          ?></td>
-                                <td><?= $row_page1['TotalAmount'] ?> </td>
+                                <td><?= number_format($row_page1['TotalAmount'],0,',',',').' VNĐ' ?> </td>
                                 <td>
                                     <?php
                                     if ($row_page1["status_Orders"] == 0) {
@@ -337,7 +337,7 @@ global $conn;
                                     ?>
                                 </td>
                                 <td>
-                                    <a href="edit_statusOrder.php/?id_order=<?php echo $row_page1["Orders_ID"] ?>" target="_blank">Chỉnh Sửa Đơn</a>
+                                    <a href="edit_statusOrder.php/?id_order=<?php echo $row_page1["Orders_ID"] ?>" target="_blank">Chỉnh Sửa </a>
                                 </td>
                             </tr>
                         <?php
